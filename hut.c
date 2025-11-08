@@ -50,11 +50,11 @@ void body() {
             else if (i > 1 && i <= 5 && j > 24 && j <= 28) {
                 printf("*");
             }
-            // Door top (row 2, columns 14-18)
+            // Door top (row 2, columns 13-21)
             else if (i == 3 && j > 12 && j <= 21) {
                 printf("*");  // Top of door frame
             }
-            // Door sides (rows 3-8, columns 14 and 18)
+            // Door sides (rows 4-8, columns 13 and 21)
             else if (i > 3 && i < height  && j > 12 && j <= 21) {
                 if (j == 13 || j == 21) {
                     printf("*");  // Door frame sides
