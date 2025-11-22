@@ -38,182 +38,10 @@ This smart solution shows you understand:
 
 ---
 
-## Assignment 2: ASCII Art Hut
 
-### Program: `hut.c`
 
-**Goal:** Write a C program that draws a hut using text characters with loops and if statements.
 
-### How It Works:
-
-The program shows how to use loops and conditions to make pictures with text:
-
-1. **Split Into Parts:** The program has two functions - `roof()` and `body()` - to make the code easier to read and understand.
-
-2. **Making the Roof:** Uses loops inside loops to create a triangle roof with:
-    - Spaces to center it
-    - Empty space inside (between the stars)
-    - Solid top and bottom edges
-
-3. **Making the Body:** Creates the main house with:
-    - Walls on left and right sides
-    - Two windows placed evenly
-    - A door in the middle with frame
-    - Solid bottom floor
-
-### Code Parts:
-
-#### Roof Function:
-```c
-void roof()
-```
-- Makes a 5-row triangle roof
-- Uses math to center each row: `roof_height - i`
-- Creates hollow look by choosing when to place stars
-
-#### Body Function:
-```c
-void body()
-```
-- Draws a 9-row rectangle building
-- Uses many if checks for:
-  - Wall edges (`j == 1 || j == width`)
-  - Window spots (left: columns 7-10, right: columns 24-28)
-  - Door frame and opening (columns 13-21)
-  - Floor bottom (`i == height`)
-
-### Output:
-```
-    *************************************
-   *                                     *
-  *                                       *
- *                                         *
-*********************************************
-      *                               *
-      *     ****              ****    *
-      *     ****  *********   ****    *
-      *     ****  *       *   ****    *
-      *     ****  *       *   ****    *
-      *           *       *           *
-      *           *       *           *
-      *           *       *           *
-      *********************************
-```
-
-This program shows:
-- How to control nested loops
-- Using complex if statements
-- Making pictures with text
-- Breaking code into smaller functions
-
----
-
-## Assignment 3: Recursive Catalan Number Calculator
-
-### Program: `mcmRecursion.c`
-
-**Goal:** Write a C program that calculates Catalan numbers using a recursive function with the formula: P(N) = Σ(k=1 to N-1)[P(k) × P(N-k)].
-
-### How It Works:
-
-The program demonstrates recursion by computing Catalan numbers, which appear in many counting problems like the number of ways to parenthesize matrix multiplication.
-
-1. **Base Cases:** When N is 0 or 1, the function returns 1. These are the simplest cases that stop the recursion.
-
-2. **Recursive Formula:** For any N greater than 1, the function calculates the sum by:
-   - Looping through k from 1 to N-1
-   - Calling P(k) and P(N-k) recursively
-   - Multiplying these results and adding to the total
-
-3. **How Recursion Works:** Each call to P(n) creates multiple smaller calls until reaching the base cases, then combines the results going back up.
-
-### Code Explanation:
-
-```c
-int P(int n) {
-    // Base case: stop recursion
-    if (n == 0 || n == 1) {
-        return 1;
-    }
-    
-    int result = 0;
-    
-    // Sum up all combinations
-    for (int k = 1; k <= n - 1; k++) {
-        result += P(k) * P(n - k);
-    }
-    
-    return result;
-}
-```
-
-### Mathematical Formula:
-
-$$P(N) = \sum_{k=1}^{N-1} P(k) \times P(N-k)$$
-
-Where:
-- P(0) = 1
-- P(1) = 1
-- P(N) = sum of products of smaller P values
-
-### Example Calculation:
-
-```
-P(3) = P(1)×P(2) + P(2)×P(1)
-     = 1×1 + 1×1
-     = 2
-
-P(4) = P(1)×P(3) + P(2)×P(2) + P(3)×P(1)
-     = 1×2 + 1×1 + 2×1
-     = 5
-```
-
-### Catalan Numbers Sequence:
-
-| N | P(N) | Meaning |
-|---|------|---------|
-| 0 | 1 | Base case |
-| 1 | 1 | Base case |
-| 2 | 2 | Two ways |
-| 3 | 5 | Five ways |
-| 4 | 14 | Fourteen ways |
-| 5 | 42 | Forty-two ways |
-
-### Output Example:
-```
-Enter value of N: 4
-
-P(4) = 14
-```
-
-### Real-World Applications:
-
-Catalan numbers count:
-- Ways to parenthesize matrix multiplications
-- Number of binary search trees with N nodes
-- Valid combinations of balanced parentheses
-- Ways to triangulate a polygon
-- Paths in a grid that don't cross the diagonal
-
-### Important Notes:
-
-**Time Complexity:** This pure recursive approach has exponential time complexity O(2^N) because it recalculates the same subproblems multiple times. For example, when computing P(5), the value P(2) might be calculated dozens of times.
-
-**Performance:** The program works well for small values (N ≤ 15), but becomes very slow for larger inputs. For better performance, you could use:
-- Memoization (caching results)
-- Dynamic programming (bottom-up approach)
-- Direct Catalan formula: C(n) = (2n)! / ((n+1)! × n!)
-
-This program demonstrates:
-- Recursive function design
-- Mathematical formula implementation
-- Loop and recursion combination
-- Base case importance in recursion
-- Exponential time complexity concepts
-
----
-
-## Assignment 4: Income Tax Calculator
+## Assignment 2: Income Tax Calculator
 
 ### Program: `taxCalculator.c`
 
@@ -376,4 +204,162 @@ This program demonstrates:
 
 ---
 
+## Assignment 3: ASCII Art Hut
 
+### Program: `hut.c`
+
+**Goal:** Write a C program that draws a hut using text characters with loops and if statements.
+
+### How It Works:
+
+The program shows how to use loops and conditions to make pictures with text:
+
+1. **Split Into Parts:** The program has two functions - `roof()` and `body()` - to make the code easier to read and understand.
+
+2. **Making the Roof:** Uses loops inside loops to create a triangle roof with:
+    - Spaces to center it
+    - Empty space inside (between the stars)
+    - Solid top and bottom edges
+
+3. **Making the Body:** Creates the main house with:
+    - Walls on left and right sides
+    - Two windows placed evenly
+    - A door in the middle with frame
+    - Solid bottom floor
+
+### Code Parts:
+
+#### Roof Function:
+```c
+void roof()
+```
+- Makes a 5-row triangle roof
+- Uses math to center each row: `roof_height - i`
+- Creates hollow look by choosing when to place stars
+
+#### Body Function:
+```c
+void body()
+```
+- Draws a 9-row rectangle building
+- Uses many if checks for:
+  - Wall edges (`j == 1 || j == width`)
+  - Window spots (left: columns 7-10, right: columns 24-28)
+  - Door frame and opening (columns 13-21)
+  - Floor bottom (`i == height`)
+
+### Output:
+```
+    *************************************
+   *                                     *
+  *                                       *
+ *                                         *
+*********************************************
+      *                               *
+      *     ****              ****    *
+      *     ****  *********   ****    *
+      *     ****  *       *   ****    *
+      *     ****  *       *   ****    *
+      *           *       *           *
+      *           *       *           *
+      *           *       *           *
+      *********************************
+```
+
+This program shows:
+- How to control nested loops
+- Using complex if statements
+- Making pictures with text
+- Breaking code into smaller functions
+
+---
+
+## Assignment 4: Matrix Chain Multiplication usingh Recursion
+
+### Program: `mcmRecursion.c`
+
+**Goal:** Write a C program that calculates in how many ways a Maxtric Chain can Multiplied using a recursive function with the formula: P(N) = Σ(k=1 to N-1)[P(k) × P(N-k)].
+
+### How It Works:
+
+The program demonstrates recursion by computing the number of ways to parenthesize matrix multiplication.
+
+1. **Base Cases:** When N is 0 or 1, the function returns 1. These are the simplest cases that stop the recursion.
+
+2. **Recursive Formula:** For any N greater than 1, the function calculates the sum by:
+   - Looping through k from 1 to N-1
+   - Calling P(k) and P(N-k) recursively
+   - Multiplying these results and adding to the total
+
+3. **How Recursion Works:** Each call to P(n) creates multiple smaller calls until reaching the base cases, then combines the results going back up.
+
+### Code Explanation:
+
+```c
+int P(int n) {
+    // Base case: stop recursion
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    
+    int result = 0;
+    
+    // Sum up all combinations
+    for (int k = 1; k <= n - 1; k++) {
+        result += P(k) * P(n - k);
+    }
+    
+    return result;
+}
+```
+
+### Mathematical Formula:
+
+$$P(N) = \sum_{k=1}^{N-1} P(k) \times P(N-k)$$
+
+Where:
+- P(0) = 1
+- P(1) = 1
+- P(N) = sum of products of smaller P values
+
+### Example Calculation:
+
+```
+P(3) = P(1)×P(2) + P(2)×P(1)
+     = 1×1 + 1×1
+     = 2
+
+P(4) = P(1)×P(3) + P(2)×P(2) + P(3)×P(1)
+     = 1×2 + 1×1 + 2×1
+     = 5
+```
+
+### Example Sequence:
+
+| N | P(N) | Meaning |
+|---|------|---------|
+| 1 | 1 | Base case |
+| 2 | 1 | Base case |
+| 3 | 2 | Two ways |
+| 4 | 5 | Five ways |
+| 5 | 14 | Fourteen ways |
+| 6 | 42 | Forty-two ways |
+
+### Output Example:
+```
+Enter value of N: 5
+
+P(5) = 14
+```
+
+
+**Performance:** The program works well for small values (N ≤ 15), but becomes very slow for larger inputs. For better performance, you could use:
+- Direct formula: P(n+1) = (2n)! / ((n+1)! × n!)
+
+This program demonstrates:
+- Recursive function design
+- Mathematical formula implementation
+- Loop and recursion combination
+- Base case importance in recursion
+
+---
