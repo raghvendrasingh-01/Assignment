@@ -51,7 +51,7 @@ double calculate_new_regime(double income) {
 }
 
 double calculate_cess(double tax) {
-    return tax * 0.04; // 4% Health and Education Cess
+    return tax * 0.04; // 4% Health and Education Cess 
 }
 
 int main() {

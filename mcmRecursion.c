@@ -23,6 +23,6 @@ int main() {
     printf("Enter value of N: ");
     scanf("%d", &n);
     
-    printf("\nP(%d) = %d\n", n, P(n));
+    printf("P(%d) = %d\n", n, P(n));
     return 0;
 }
